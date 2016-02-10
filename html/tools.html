@@ -1,0 +1,44 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+    <link rel="stylesheet" href="styles/style.css"/>
+  </head>
+
+  <body ng-controller="MyController">
+
+    <div class = "chat link-container">
+      <!-- <label for="nameInput">Username:</label>
+      <input ng-model="name" type="text" id="nameInput" placeholder="Type a name..."> -->
+      <form novalidate class="simple-form">
+        Genus: <input type="text" ng-model="tool.genus" /><br />
+        Species: <input type="text" ng-model="tool.species" /><br />
+        <input type="button" ng-click="reset()" value="Reset" />
+        <input type="submit" ng-click="update(tool)" value="Save" />
+      </form>
+    </div>
+
+    <!-- CHAT MARKUP -->
+    <div class="chat l-demo-container">
+      <header>Tool List</header>
+
+
+      <ul id="messages" class="chat-messages">
+        <li ng-repeat="tool in tools">
+          <strong class="chat-username">
+            {{tool.genus}}
+          </strong>
+          {{tool.species}}
+          <button ng-click="removeMessage(tool)">Delete</button>
+        </li>
+      </ul>
+
+    </div>
+
+
+
+    <script src="js/toolsApp.js"></script>
+  </body>
+</html>

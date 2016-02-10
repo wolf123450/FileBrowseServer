@@ -1,0 +1,74 @@
+
+html, body {
+  background-color: #223344;
+  background: linear-gradient(to top, #664000, #223344 50%);
+  min-height: 100%;
+  /*width: 100%;*/
+  display: inline-block;
+  margin: 0 auto;
+
+}
+
+div.content {
+  background: #192939;
+  background: linear-gradient(to top, #000000, #192939 60%);
+  margin: 0 auto;
+  width: 70%;
+  height: 100%;
+  /*overflow: visible;*/
+  /*overflow: inherit;*/
+  /*overflow-y: scroll;*/
+  /*overflow: hidden;*/
+  /*border-radius: 15px 15px 15px 15px;*/
+}
+
+.link-container{
+  width: 70%;
+  margin: 50px auto 10px auto;
+  padding-bottom: 20px;
+}
+
+.image-container{
+  width: 70%;
+  height: 100%;
+  margin: 50px auto auto auto;
+
+}
+
+.mainImage{
+  width: 100%;
+  height:auto;
+  /*margin: 40px auto auto auto;*/
+}
+
+#links {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  height: auto; }
+  #links li {
+    padding: 15px;
+    background: linear-gradient(to top, #FFFFFF, #777777);
+
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.9), 0px 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px 5px 0px 0px;
+  }
+  #links li:hover {
+    background: linear-gradient(to bottom, #FFFFFF, #777777);
+    }
+  #links li a:link{
+    color: #444;
+  }
+  #links li a:visited{
+    color: #888;
+  }
+  #links li#prev{
+    float:left
+  }
+  #links li#next{
+    float:right
+  }
+
+  a{
+    display: block;
+  }
