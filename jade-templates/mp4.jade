@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+    link(rel="stylesheet" href="/styles/mp4.css")
+  body
+    div.content
+      div.vid-container
+        video(width="640" controls).mainVideo
+          source(
+            src= videoSource
+            type="video/mp4")
+          | Your browser does not support HTML5 video.
+      div.link-container
+        ul#links
+          if prev
+            a(href=prev)
+              li#prev
+                |Prev
+          if next
+            a(href=next)
+              li#next
+                |Next

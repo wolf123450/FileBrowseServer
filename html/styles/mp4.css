@@ -1,0 +1,70 @@
+body{
+  background: #223344;
+  background: linear-gradient(to top, #664000, #223344 50%);
+  /*background-size: 1980px 1080px;*/
+
+  margin: 0;
+  /*background: #AAAAAA;*/
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+div.content {
+  background: #192939;
+  background: linear-gradient(to top, #000000, #192939 60%);
+  margin: auto auto auto auto;
+  width: 800px;
+  height: 100%;
+  overflow: hidden;
+  /*border-radius: 15px 15px 15px 15px;*/
+}
+
+.link-container{
+  width: 640px;
+  margin: 20px auto auto auto;
+}
+.vid-container{
+  width:640px;
+  margin: 40px auto auto auto;
+}
+
+.mainVideo{
+  width: 640px;
+  height:auto;
+  margin: 40px auto auto auto;
+}
+
+#links {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  height: auto; }
+  #links li {
+    padding: 15px;
+    background: linear-gradient(to top, #FFFFFF, #777777);
+
+    box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.9), 0px 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 5px 5px 0px 0px;
+  }
+  #links li:hover {
+    background: linear-gradient(to bottom, #FFFFFF, #777777);
+    }
+  #links li a:link{
+    color: #444;
+  }
+  #links li a:visited{
+    color: #888;
+  }
+  #links li#prev{
+    float:left
+  }
+  #links li#next{
+    float:right
+  }
+
+  a{
+    display: block;
+  }
