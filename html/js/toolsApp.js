@@ -1,12 +1,14 @@
-var myApp = angular.module("myApp", ["firebase"]);
+var toolsApp = angular.module("toolsApp", ["firebase"]);
 
-myApp.controller("MyController", ["$scope", "$firebaseArray", "$firebaseAuth",
+toolsApp.controller("ToolsController", ["$scope", "$firebaseArray", "$firebaseAuth",
   function($scope, $firebaseArray, $firebaseAuth) {
     //CREATE A FIREBASE REFERENCE
     var ref = new Firebase("https://amber-torch-1283.firebaseio.com/");
     var tools = ref.child("tools");
     var toolGenus = new Set();
     // GET MESSAGES AS AN ARRAY
+    $scope.searchQuery = "";
+
     $scope.tools = $firebaseArray(tools.orderByChild("genus"));
 
     tools.orderByChild("genus").on("child_added", function(snapshot){
@@ -20,7 +22,7 @@ myApp.controller("MyController", ["$scope", "$firebaseArray", "$firebaseAuth",
       console.log(snapshot.val().species);
     });
 
-    $scope.update = function(tool) {
+    $scope.update = function(query) {
       // $scope.tools.$add({
       //   genus:"test",
       //   species:"test two"

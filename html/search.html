@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="toolsApp">
+<html ng-app="searchApp">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
     <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
@@ -7,16 +7,15 @@
     <link rel="stylesheet" href="styles/style.css"/>
   </head>
 
-  <body ng-controller="ToolsController">
+  <body ng-controller="SearchController">
 
     <div class = "chat link-container">
       <!-- <label for="nameInput">Username:</label>
       <input ng-model="name" type="text" id="nameInput" placeholder="Type a name..."> -->
       <form novalidate class="simple-form">
-        Genus: <input type="text" ng-model="tool.genus" /><br />
-        Species: <input type="text" ng-model="tool.species" /><br />
-        <input type="button" ng-click="reset()" value="Reset" />
-        <input type="submit" ng-click="update(tool)" value="Save" />
+        <label for="SearchInput">Search:</label>
+        <input type="text" id="search" ng-model="searchQuery" ng-keyup="update(searchQuery)"/><br />
+        <!-- <input type="submit"  ng-click="update(searchQuery)" value="GO" /> -->
       </form>
     </div>
 
@@ -26,12 +25,11 @@
 
 
       <ul id="messages" class="chat-messages">
-        <li ng-repeat="tool in tools">
+        <li ng-repeat="tool in results">
           <strong class="chat-username">
             {{tool.genus}}
           </strong>
           {{tool.species}}
-          <button ng-click="removeMessage(tool)">Delete</button>
         </li>
       </ul>
 
@@ -39,6 +37,6 @@
 
 
 
-    <script src="js/toolsApp.js"></script>
+    <script src="js/searchApp.js"></script>
   </body>
 </html>
