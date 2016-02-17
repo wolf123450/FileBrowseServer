@@ -9,6 +9,21 @@ myApp.controller("MyController", ["$scope", "$firebaseArray", "$firebaseAuth",
     // var ref = new Firebase("https://luminous-torch-6850.firebaseio.com/chatty");
     // create an instance of the authentication service
     var auth = $firebaseAuth(ref);
+    var location = {};
+
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+
+    }
+    function showPosition(position){
+      location =  {"latitude": position.coords.latitude, "longitude":position.coords.longitude };
+      //TODO reverse geocoding
+      // https://developers.google.com/maps/documentation/javascript/examples/geocoding-reverse
+    }
+
+
     //login with Facebook
     $scope.loginFacebook = function(){
       ref.authWithOAuthPopup("facebook", function(error, authData) {
@@ -16,7 +31,8 @@ myApp.controller("MyController", ["$scope", "$firebaseArray", "$firebaseAuth",
             $scope.name = authData.facebook.displayName;
             users.child(authData.uid).set({
               "name": authData.facebook.displayName,
-              "email":authData.facebook.email
+              "email":authData.facebook.email,
+              "location": location
             });
           }
         );
