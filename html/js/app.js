@@ -29,11 +29,17 @@ myApp.controller("MyController", ["$scope", "$firebaseArray", "$firebaseAuth",
       ref.authWithOAuthPopup("facebook", function(error, authData) {
         $scope.$apply( function() {
             $scope.name = authData.facebook.displayName;
-            users.child(authData.uid).set({
-              "name": authData.facebook.displayName,
-              "email":authData.facebook.email,
-              "location": location
-            });
+            // users.child(authData.uid).set({
+            //   "name": authData.facebook.displayName,
+            //   "email":authData.facebook.email,
+            //   "location": location
+            // });
+            var updateObj = {}
+            updateObj[authData.uid + "/name"] = authData.facebook.displayName;
+            updateObj[authData.uid + "/email"] = authData.facebook.email;
+            updateObj[authData.uid + "/location"] = location;
+            //Use update so we don't destroy data we're not mentioning.
+            users.update(updateObj);
           }
         );
       },{
