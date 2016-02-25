@@ -22,7 +22,7 @@ toolsApp.controller("ToolsController", ["$scope", "$firebaseArray", "$firebaseAu
       console.log(snapshot.val().species);
     });
 
-    $scope.update = function(query) {
+    $scope.update = function(tool) {
       // $scope.tools.$add({
       //   genus:"test",
       //   species:"test two"
